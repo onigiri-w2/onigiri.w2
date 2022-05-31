@@ -1,0 +1,14 @@
+[
+  {
+    "title": "Dockerロギング 入門",
+    "description": "今までDockerのロギングはいつも適当に設定していた。だが、ロギングを状況に合わせて適切に設定しないと、性能・信頼性に影響するらしいので、しっかりと理解を深めておこうと思う。",
+    "url": "https://zenn.dev/onigiri_w2/articles/e40c5873f7f453",
+    "date": "2022-05-30"
+  },
+  {
+    "title": "pytest 最低限入門",
+    "description": "pytestの使い方を毎回忘れてしまうので、よく使う関数や機能・ライブラリをまとめておく。今後もまた忘れた時にこのページを見返すことにする。",
+    "url": "https://zenn.dev/onigiri_w2/articles/5e6cf4d3ba9ed5",
+    "date": "2022-05-30"
+  }
+]

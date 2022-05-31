@@ -15,11 +15,38 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
+    "@chakra-ui/gatsby-plugin": "^2.0.4",
+    "@chakra-ui/icons": "^1.1.7",
+    "@chakra-ui/react": "^1.8.8",
+    "@emotion/css": "^11.9.0",
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
+    "@fontsource/noto-sans-jp": "^4.5.9",
+    "@fontsource/noto-serif-jp": "^4.5.9",
+    "framer-motion": "^6.3.3",
     "gatsby": "^4.13.1",
     "gatsby-plugin-emotion": "^7.13.0",
+    "gatsby-plugin-image": "^2.13.0",
+    "gatsby-plugin-sass": "^5.14.0",
+    "gatsby-plugin-sharp": "^4.13.0",
+    "gatsby-remark-copy-linked-files": "^5.14.0",
+    "gatsby-remark-external-links": "^0.0.4",
+    "gatsby-remark-images": "^6.14.0",
+    "gatsby-remark-prismjs": "^6.14.0",
+    "gatsby-remark-responsive-iframe": "^5.14.0",
+    "gatsby-remark-smartypants": "^5.14.0",
+    "gatsby-source-filesystem": "^4.13.0",
+    "gatsby-transformer-json": "^4.15.0",
+    "gatsby-transformer-remark": "^5.14.0",
+    "gatsby-transformer-sharp": "^4.13.0",
+    "node-sass": "^6.0.1",
     "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.1",
+    "react-emoji-render": "^1.2.4",
+    "react-icons": "^4.3.1"
+  },
+  "volta": {
+    "node": "16.15.0",
+    "yarn": "1.22.18"
   }
 }
