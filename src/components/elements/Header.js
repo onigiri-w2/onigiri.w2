@@ -3,6 +3,7 @@ import { Box, Link, Heading, HStack, Flex, Text, Center } from '@chakra-ui/react
 import "@fontsource/noto-sans-jp"
 import "@fontsource/noto-serif-jp"
 import { StaticImage } from 'gatsby-plugin-image';
+import { LinkImage } from './LinkImage';
 import { LinkIcon } from './LinkIcon';
 
 
@@ -20,6 +21,7 @@ export const Header = () => {
       <Center mt={4}>
         <Box mx="2"><LinkIcon type="twitter" url="https://twitter.com/W2Onigiri" /></Box>
         <Box mx="2"><LinkIcon type="github" url="https://github.com/onigiri-w2" /></Box>
+        <Box mx="2"><LinkImage type="scrapbox" url="https://scrapbox.io/onigiri-it-tips/" /></Box>
       </Center>
     </Box>
   )
