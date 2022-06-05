@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Heading, Flex, Icon, Text, LinkBox, LinkOverlay, HStack, VStack } from '@chakra-ui/react'
+import { Box, Heading, Flex, Icon, Text, LinkBox, LinkOverlay, HStack } from '@chakra-ui/react'
 import {BiHome} from 'react-icons/bi';
 import { StaticImage } from 'gatsby-plugin-image';
 

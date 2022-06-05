@@ -10,5 +10,11 @@
     "description": "pytestの使い方を毎回忘れてしまうので、よく使う関数や機能・ライブラリをまとめておく。今後もまた忘れた時にこのページを見返すことにする。",
     "url": "https://zenn.dev/onigiri_w2/articles/5e6cf4d3ba9ed5",
     "date": "2022-05-30"
+  },
+  {
+    "title": "[ReactNative] SafeAreaViewで混乱しないために",
+    "description": "SafeAreaViewが複数のライブラリから提供されていて混乱する。どれを使えばいいのよと。筆者の知る限り、最低3つのライブラリで観測してる。",
+    "url": "https://zenn.dev/onigiri_w2/articles/9b9890c5bb5e85",
+    "date": "2022-05-27"
   }
 ]

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Link, Heading, HStack, Flex, Text, Center } from '@chakra-ui/react'
+import { Box, Link, Heading, HStack, Center } from '@chakra-ui/react'
 import "@fontsource/noto-sans-jp"
 import "@fontsource/noto-serif-jp"
 import { StaticImage } from 'gatsby-plugin-image';
@@ -27,16 +27,6 @@ export const Header = () => {
   )
 }
 
-
-const LinkText = ({to, children}) => {
-  return (
-    <Link href={to}>
-      <Heading px={1} fontSize={20} fontWeight="normal" color={"cyan.800"}>
-        {children}
-      </Heading>
-    </Link>
-  )
-}
 
 const styles = {
   link: {
