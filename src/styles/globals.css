@@ -5,9 +5,11 @@
 @theme {
   --color-text-base: #333333;
   --color-text-light: #666666;
-
+  --color-divider: #eaeaea;
 
   --font-weight-bold: 600;
+
+  --site-max-width: 48rem;
 }
 
 html,

@@ -14,9 +14,11 @@ export default function RootLayout({
   return (
     <html lang="ja" className={inter.variable}>
       <body>
-        <div className="max-w-2xl mx-auto px-5 my-4">
+        <div className="max-w-(--site-max-width) mx-auto px-4">
           <Header />
-          {children}
+          <div className="py-8">
+            {children}
+          </div>
         </div>
       </body>
     </html>

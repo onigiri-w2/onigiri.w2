@@ -7,14 +7,12 @@ export default async function Home() {
   const posts = await getPostMetas();
 
   return (
-    <div>
-      <div>
-        {posts.map((post) => (
-          <Link key={post.slug} href={`/blog/${post.slug}/`}>
-            <PostCard postMetadata={post.metadata} />
-          </Link>
-        ))}
-      </div>
+    <div className='flex flex-col space-y-2'>
+      {posts.map((post) => (
+        <Link key={post.slug} href={`/blog/${post.slug}/`}>
+          <PostCard postMetadata={post.metadata} />
+        </Link>
+      ))}
     </div>
   );
 }
