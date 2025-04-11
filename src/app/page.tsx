@@ -1,11 +1,21 @@
-import Header from "@/components/Header";
+import PostCard from '@/components/PostCard';
+import { getPostMetas } from '@/lib/post/loader';
+import Link from 'next/link';
 
-export default function Home() {
+
+export default async function Home() {
+  const posts = await getPostMetas();
+
   return (
-    <main>
-      <h1 className="text-base font-bold">
-        Hello world!
-      </h1>
-    </main>
+    <div>
+      <div>
+        {posts.map((post) => (
+          <Link key={post.slug} href={`/blog/${post.slug}/`}>
+            <PostCard postMetadata={post.metadata} />
+          </Link>
+        ))}
+      </div>
+    </div>
   );
 }
+

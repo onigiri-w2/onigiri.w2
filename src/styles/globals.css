@@ -1,8 +1,13 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 
 @theme {
-  --color-text-base: #0F1420;
+  --color-text-base: #333333;
+  --color-text-light: #666666;
+
+
+  --font-weight-bold: 600;
 }
 
 html,
