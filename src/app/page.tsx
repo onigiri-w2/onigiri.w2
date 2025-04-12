@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 
 export default async function Home() {
-  const posts = await getPostMetas();
+  const posts = await getPostMetas("desc");
 
   return (
     <div className='flex flex-col space-y-2'>
