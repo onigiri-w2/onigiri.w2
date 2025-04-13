@@ -1,4 +1,4 @@
-:root {
+.markdown {
   --line-height: 1.9rem;
   --base-unit: calc(var(--line-height) / 4);
   
@@ -8,11 +8,8 @@
   --font-size-h2: 1.625rem;
   --font-size-h3: 1.2rem;
 
-  font-size: var(--font-size-base);
-}
-
-.markdown {
   line-height: var(--line-height);
+  font-size: var(--font-size-base);
 }
 
 .markdown :is(h1, h2, h3, h4, h5, h6) {
