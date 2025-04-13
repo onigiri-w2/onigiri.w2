@@ -1,4 +1,4 @@
-import { getPost } from "@/lib/post/loader";
+import { getPost } from "@/posts/loader";
 import { readdir } from "fs/promises";
 
 
@@ -10,9 +10,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
     const date = new Date(metadata.date);
 
     return (
-      <article>
-        <Post />
-      </article>
+      <Post />
     );
   } catch (error) {
     console.error(`Error loading post ${slug}:`, error);
@@ -22,7 +20,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
 
 export const dynamicParams = false;
 export async function generateStaticParams() {
-  const entries = await readdir(`${process.cwd()}/src/content`, { withFileTypes: true });
+  const entries = await readdir(`${process.cwd()}/src/posts/content`, { withFileTypes: true });
   const directories = entries.filter(entry => entry.isDirectory());
   const names = directories.map(entry => entry.name);
 

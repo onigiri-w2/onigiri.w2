@@ -1,5 +1,5 @@
 import PostCard from '@/components/PostCard';
-import { getPostMetas } from '@/lib/post/loader';
+import { getPostMetas } from '@/posts/loader';
 import Link from 'next/link';
 
 

@@ -1,21 +1,19 @@
 @import "tailwindcss";
-@plugin "@tailwindcss/typography";
 
 
 @theme {
-  --color-text-primary: #333333;
-  --color-text-secondary: #666666;
-  --color-text-tertiary: #999999;
+  --color-text-primary: rgba(0, 0, 0, 0.87);
+  --color-text-secondary: rgba(0, 0, 0, 0.54);
+  --color-text-tertiary: rgba(0, 0, 0, 0.38);
   --color-divider: #eaeaea;
 
   --font-weight-bold: 600;
 
-  --site-max-width: 48rem;
+  --site-max-width: 40rem; /* 16px * 40 = 640px */
 }
 
 html,
 body {
   font-family: var(--font-inter), "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
-  font-size: 16px;
   color: var(--color-text-primary);
 }
