@@ -1,4 +1,4 @@
-import { PostMetadata } from "@/lib/post/types";
+import { PostMetadata } from "@/posts/types";
 
 
 type Props = {
