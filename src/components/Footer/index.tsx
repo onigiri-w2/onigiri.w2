@@ -17,7 +17,7 @@ function CopyRight() {
   return (
     <div className="flex items-center justify-center space-x-2 text-text-tertiary text-sm">
       <p>© {new Date().getFullYear()}</p>
-      <a href={siteSourceURL} target='_blank' className='text-blue-500 hover:underline'>View Source</a>
+      <a href={siteSourceURL} target='_blank' className='text-link hover:underline'>View Source</a>
     </div>
   );
 }

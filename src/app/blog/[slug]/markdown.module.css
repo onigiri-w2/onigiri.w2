@@ -81,6 +81,14 @@
   color: var(--color-text-primary);
 }
 
+.markdown a {
+  color: var(--color-link);
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
 
 
 .markdown > *:first-child {
