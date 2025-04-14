@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { inter } from "../styles/fonts";
 import "@/styles/globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { ThemeProvider } from "@/components/theme/ThemeProvider"
+import { inter } from "../styles/fonts";
 
 export const metadata: Metadata = {
   title: "onigiri.w2",
