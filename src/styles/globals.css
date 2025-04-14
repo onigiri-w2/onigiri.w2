@@ -5,9 +5,15 @@
   --color-text-primary: rgba(0, 0, 0, 0.87);
   --color-text-secondary: rgba(0, 0, 0, 0.54);
   --color-text-tertiary: rgba(0, 0, 0, 0.38);
-  --color-divider: #eaeaea;
+  --color-divider: rgba(0, 0, 0, 0.12);
 
-  --font-weight-bold: 600;
+  --text-base: 1rem;
+  --text-h1: 2rem;
+  --text-h1-small: 1.65rem;
+  --text-h2: 1.5rem;
+  --text-h2-small: 1.4rem;
+  --text-h3: 1.25rem;
+  --text-h3-small: 1.15rem;
 
   --site-max-width: 40rem; /* 16px * 40 = 640px */
 }

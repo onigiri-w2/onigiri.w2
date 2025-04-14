@@ -3,10 +3,11 @@
   --base-unit: calc(var(--line-height) / 4);
   
   /* フォントサイズ */
-  --font-size-base: 1rem;
-  --font-size-h1: 2rem;
-  --font-size-h2: 1.625rem;
-  --font-size-h3: 1.2rem;
+  --font-size-base: var(--text-base);
+  --font-size-h2: var(--text-h2);
+  --font-size-h2-small: var(--text-h2-small);
+  --font-size-h3: var(--text-h3);
+  --font-size-h3-small: var(--text-h3-small);
 
   line-height: var(--line-height);
   font-size: var(--font-size-base);
@@ -19,12 +20,23 @@
 }
 .markdown h2 {
   font-size: var(--font-size-h2);
-  margin-top: calc(var(--base-unit) * 12);
+  margin-top: calc(var(--base-unit) * 9);
+  margin-bottom: calc(var(--base-unit) * -1.5);
+  padding-bottom: calc(var(--base-unit) * 1.5);
+  border-bottom: 1px solid var(--color-divider);
+
+  @media (max-width: 640px) {
+    font-size: var(--font-size-h2-small);
+  }
 }
 .markdown h3 {
   font-size: var(--font-size-h3);
   margin-top: calc(var(--base-unit) * 6);
   margin-bottom: calc(var(--base-unit) * -1.5);
+
+  @media (max-width: 640px) {
+    font-size: var(--font-size-h3-small);
+  }
 }
 
 .markdown p {
