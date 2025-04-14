@@ -1,5 +1,6 @@
-import { getPost } from "@/lib/post/loader";
+import { getPost } from "@/posts/loader";
 import { readdir } from "fs/promises";
+import styles from './markdown.module.css'
 
 
 export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
@@ -10,9 +11,18 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
     const date = new Date(metadata.date);
 
     return (
-      <article>
-        <Post />
-      </article>
+      <div>
+        <div className="mt-16 mb-10">
+          <h1 className="text-h1-small md:text-h1 leading-snug font-bold">{metadata.title}</h1>
+          <div className="mt-1" />
+          <p className=" text-sm md:text-base text-text-secondary leading-normal block">
+            {date.toISOString().split('T')[0]}
+          </p>
+        </div>
+        <article className={styles.markdown}>
+          <Post />
+        </article>
+      </div>
     );
   } catch (error) {
     console.error(`Error loading post ${slug}:`, error);
@@ -22,7 +32,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
 
 export const dynamicParams = false;
 export async function generateStaticParams() {
-  const entries = await readdir(`${process.cwd()}/src/content`, { withFileTypes: true });
+  const entries = await readdir(`${process.cwd()}/src/posts/content`, { withFileTypes: true });
   const directories = entries.filter(entry => entry.isDirectory());
   const names = directories.map(entry => entry.name);
 

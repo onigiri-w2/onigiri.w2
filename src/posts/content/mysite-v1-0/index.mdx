@@ -1,0 +1,43 @@
+export const metadata = {
+  title: "onigiri.w2 - v1.0",
+  description: "個人サイト「onigiri.w2」のバージョン1.0です。",
+  date: "2025-04-12T12:00:00+09:00",
+  tags: ["onigiri.w2"],
+};
+
+
+
+## 機能
+ウェブサイトのデザインにおいて、フォントの選択は見た目の印象だけでなく、ユーザー体験全体を左右する重要な要素です。適切なフォントを選ぶことで、ブランドの個性を表現しながらも、読みやすさと視認性を確保することができます。特に日本語サイトでは、和文フォントと欧文フォントの調和も考慮する必要があります。
+
+### Blog機能
+
+ウェブサイトのデザインにおいて、フォントの選択は見た目の印象だけでなく、ユーザー体験全体を左右する重要な要素です。適切なフォントを選ぶことで、ブランドの個性を表現しながらも、読みやすさと視認性を確保することができます。特に日本語サイトでは、和文フォントと欧文フォントの調和も考慮する必要があります。
+- 概要
+  - src/posts/content/配下にあるmdxファイルをビルド時に読み込んで対応ページを作成してる。
+  - トップページには、scr/contnet/配下のファイル名を元に投稿リストコンポーネントを置いてる。
+- 実装ポイント
+  - その他は、NextJSの公式ドキュメントに従って実装している。
+- 参考資料
+  - [NextJS Markdown and MDX](https://nextjs.org/docs/app/building-your-application/configuring/mdx)
+  - [MDX](https://mdxjs.com/)
+  - [MDX Guides - Frontmatter](https://mdxjs.com/guides/frontmatter/)
+
+
+### フォント
+- おしゃれなデザインのサイトのfont-familyを調べて、それをパクる。
+- [catnoze](https://catnose.me/)さんのfont-famillyを調べてパクった。
+  - Inter というWebフォントを最優先にしてるっぽい。
+
+
+
+## 学習したこと
+- SPA, SSG, SSR といったレンダリング方式の違いや歴史
+  - [https://www.youtube.com/watch?v=Cifkb-ZVps4](https://www.youtube.com/watch?v=Cifkb-ZVps4)
+  - SPA, SSG, SSR関係なく、基本的にはClientJS主導による画面遷移が主流。
+    - ブラウザのロードを挟まないことで、ページの全体更新がなく、UXが向上する。
+    - それをどう実現するのかは、フレームワークによって異なる。
+
+- NextJSのチュートリアル
+  - [NextJS App Router](https://nextjs.org/learn/dashboard-app)
+

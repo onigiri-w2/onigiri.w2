@@ -1,0 +1,88 @@
+.markdown {
+  --line-height: 1.9rem;
+  --base-unit: calc(var(--line-height) / 4);
+  
+  /* フォントサイズ */
+  --font-size-base: var(--text-base);
+  --font-size-h2: var(--text-h2);
+  --font-size-h2-small: var(--text-h2-small);
+  --font-size-h3: var(--text-h3);
+  --font-size-h3-small: var(--text-h3-small);
+
+  line-height: var(--line-height);
+  font-size: var(--font-size-base);
+}
+
+.markdown :is(h1, h2, h3, h4, h5, h6) {
+  font-weight: 700;
+  letter-spacing: .06em;
+  font-feature-settings: "palt";
+}
+.markdown h2 {
+  font-size: var(--font-size-h2);
+  margin-top: calc(var(--base-unit) * 9);
+  margin-bottom: calc(var(--base-unit) * -1.5);
+  padding-bottom: calc(var(--base-unit) * 1.5);
+  border-bottom: 1px solid var(--color-divider);
+
+  @media (max-width: 640px) {
+    font-size: var(--font-size-h2-small);
+  }
+}
+.markdown h3 {
+  font-size: var(--font-size-h3);
+  margin-top: calc(var(--base-unit) * 6);
+  margin-bottom: calc(var(--base-unit) * -1.5);
+
+  @media (max-width: 640px) {
+    font-size: var(--font-size-h3-small);
+  }
+}
+
+.markdown p {
+  font-size: var(--font-size-base);
+  margin-top: calc(var(--base-unit) * 3);
+  margin-bottom: 0;
+}
+
+.markdown > ul,
+.markdown > ol {
+  margin-top: calc(var(--base-unit) * 3);
+  margin-bottom: calc(var(--base-unit) * 3);
+}
+.markdown ul {
+  --ul-padding-left: calc(var(--base-unit) * 4);
+
+  list-style: none;
+  padding-left: var(--ul-padding-left);
+}
+.markdown ul li {
+  position: relative;
+}
+.markdown ul > li::before {
+  --marker-size: .36em;
+  position: absolute;
+  left: calc(var(--ul-padding-left) * -1 / 2 - var(--marker-size) / 2);
+  top: calc(var(--line-height) / 2 - var(--marker-size) / 2);
+  content: '';
+  display: block;
+  width: var(--marker-size);
+  height: var(--marker-size);
+  border-radius: 50%;
+  background-color: var(--color-text-primary);
+  margin-right: calc(var(--base-unit) * 2);
+ } 
+
+.markdown ol {
+  list-style: decimal;
+  padding-left: calc(var(--line-height));
+}
+.markdown li::marker {
+  color: var(--color-text-primary);
+}
+
+
+
+.markdown > *:first-child {
+  margin-top: 0;
+}
