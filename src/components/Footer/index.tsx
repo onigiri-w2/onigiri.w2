@@ -4,7 +4,7 @@ import SocialNavigation from './SocialNavigation';
 
 export default function Footer() {
   return (
-    <footer className='h-40 border-divider border-t flex flex-col items-center pt-4 space-y-4'>
+    <footer className='py-xl flex flex-col items-center space-y-md'>
       <SocialNavigation />
       <CopyRight />
     </footer>

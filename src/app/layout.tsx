@@ -15,7 +15,7 @@ export default function RootLayout({
   return (
     <html lang="ja" className={inter.variable}>
       <body className="flex flex-col min-h-screen">
-        <div className="max-w-(--site-max-width) mx-auto px-4 flex-grow w-full mt-10">
+        <div className="max-w-(--site-max-width) mx-auto px-4 flex-grow w-full my-10">
           <Header />
           <div className="mt-10">
             {children}
