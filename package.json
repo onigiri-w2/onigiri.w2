@@ -2,6 +2,7 @@
   "name": "onigiri.w2",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
@@ -20,15 +21,19 @@
     "postcss": "^8.5.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "rss": "^1.2.2",
     "tailwindcss": "^4.1.3"
   },
   "devDependencies": {
+    "@mdx-js/mdx": "^3.1.0",
     "@tailwindcss/typography": "^0.5.16",
     "@types/mdx": "^2.0.13",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/rss": "^0.0.32",
     "serve": "^14.2.4",
+    "tsx": "^4.19.3",
     "typescript": "^5"
   }
 }

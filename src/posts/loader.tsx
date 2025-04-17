@@ -1,10 +1,11 @@
-"server only";
-
 import { readdir } from "fs/promises";
 import { PostContent } from "./types";
 
 
 const postsDir = `${process.cwd()}/src/posts/content`;
+const genImportPath = (slug: string) => {
+  return `@/posts/content/${slug}/index.mdx`;
+}
 
 export const getPostMetas = async (order: "asc" | "desc" = "asc") => {
   const content = await readdir(postsDir, { withFileTypes: true });
@@ -12,7 +13,7 @@ export const getPostMetas = async (order: "asc" | "desc" = "asc") => {
 
   const postMetas = await Promise.all(
     slugs.map(async (slug) => {
-      const { metadata }: PostContent = await import(`@/posts/content/${slug}/index.mdx`);
+      const { metadata }: PostContent = await import(genImportPath(slug));
       return { slug, metadata };
     })
   );
@@ -24,7 +25,7 @@ export const getPostMetas = async (order: "asc" | "desc" = "asc") => {
 
 export const getPost = async (slug: string) => {
   try {
-    const { metadata, default: Post }: PostContent = await import(`@/posts/content/${slug}/index.mdx`);
+    const { metadata, default: Post }: PostContent = await import(genImportPath(slug));
     return { metadata, Post };
   } catch (error) {
     throw new Error(`Error loading post ${slug}: ${error}`);

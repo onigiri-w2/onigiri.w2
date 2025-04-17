@@ -1,7 +1,7 @@
 import { getPost } from "@/posts/loader";
 import { readdir } from "fs/promises";
 import styles from './markdown.module.css'
-
+import { mdxComponents } from "@/posts/components";
 
 export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
@@ -20,7 +20,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
           </p>
         </div>
         <article className={styles.markdown}>
-          <Post />
+          <Post components={mdxComponents} />
         </article>
       </div>
     );
