@@ -8,6 +8,16 @@ import { inter } from "../styles/fonts";
 export const metadata: Metadata = {
   title: "onigiri.w2",
   description: "onigiri.w2 Website",
+  alternates: {
+    types: {
+      'application/rss+xml': [
+        {
+          url: '/rss.xml',
+          title: 'onigiri.w2 RSS Feed'
+        }
+      ],
+    }
+  }
 };
 
 export default function RootLayout({
