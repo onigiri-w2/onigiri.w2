@@ -1,7 +1,6 @@
-import { getPost } from "@/posts/loader";
-import { readdir } from "fs/promises";
+import { getPost, getPostSlugs } from "@/posts/loader";
 import styles from './markdown.module.css'
-
+import { mdxComponents } from "@/posts/components";
 
 export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
@@ -20,7 +19,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
           </p>
         </div>
         <article className={styles.markdown}>
-          <Post />
+          <Post components={mdxComponents} />
         </article>
       </div>
     );
@@ -32,13 +31,8 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
 
 export const dynamicParams = false;
 export async function generateStaticParams() {
-  const entries = await readdir(`${process.cwd()}/src/posts/content`, { withFileTypes: true });
-  const directories = entries.filter(entry => entry.isDirectory());
-  const names = directories.map(entry => entry.name);
-
-  return names.map(name => ({
-    slug: name,
-  }));
+  const slugs = await getPostSlugs();
+  return slugs.map(slug => ({ slug }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {

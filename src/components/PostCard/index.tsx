@@ -10,7 +10,7 @@ export default async function PostCard({ postMetadata }: Props) {
   return (
     <article className="group cursor-pointer">
       <span className="text-xs leading-tight text-text-secondary">{formattedDate}</span>
-      <h2 className="text-base text-blue-500 leading-tight group-hover:underline">{title}</h2>
+      <h2 className="text-base text-link leading-tight group-hover:underline">{title}</h2>
     </article>
   );
 }

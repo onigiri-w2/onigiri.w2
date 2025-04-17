@@ -2,10 +2,13 @@
 
 
 @theme {
-  --color-text-primary: rgba(0, 0, 0, 0.87);
-  --color-text-secondary: rgba(0, 0, 0, 0.54);
-  --color-text-tertiary: rgba(0, 0, 0, 0.38);
-  --color-divider: rgba(0, 0, 0, 0.12);
+  --color-background: light-dark(#ffffff, #1a1a1a);
+  --color-surface-subtle: light-dark(rgba(0, 0, 0, 0.06), rgba(255, 255, 255, 0.06));
+  --color-text-primary: light-dark(rgba(0, 0, 0, 0.87), rgba(255, 255, 255, 0.87));
+  --color-text-secondary: light-dark(rgba(0, 0, 0, 0.54), rgba(255, 255, 255, 0.60));
+  --color-text-tertiary: light-dark(rgba(0, 0, 0, 0.38), rgba(255, 255, 255, 0.38));
+  --color-divider: light-dark(rgba(0, 0, 0, 0.12), rgba(255, 255, 255, 0.12));
+  --color-link: light-dark(#2b7fff, #5b9aff);
 
   --text-base: 1rem;
   --text-h1: 2rem;
@@ -26,13 +29,19 @@
   --spacing-3xl: 6.5rem;   /* 104px */
   --spacing-4xl: 10.5rem;     /* 168px */
 
-
-
   --site-max-width: 40rem; /* 16px * 40 = 640px */
 }
 
+
+:root {
+  color-scheme: light dark;
+}
+
+
 html,
 body {
+  /** interはapp/layout.tsxでimportしている */
   font-family: var(--font-inter), "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
   color: var(--color-text-primary);
+  background-color: var(--color-background);
 }

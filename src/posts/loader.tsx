@@ -1,13 +1,11 @@
-"server only";
-
 import { readdir } from "fs/promises";
 import { PostContent } from "./types";
+import { POST_CONTENTS_DIR } from "./const";
 
 
-const postsDir = `${process.cwd()}/src/posts/content`;
 
 export const getPostMetas = async (order: "asc" | "desc" = "asc") => {
-  const content = await readdir(postsDir, { withFileTypes: true });
+  const content = await readdir(POST_CONTENTS_DIR, { withFileTypes: true });
   const slugs = content.filter((dirent) => dirent.isDirectory()).map((dirent) => dirent.name);
 
   const postMetas = await Promise.all(
@@ -29,6 +27,13 @@ export const getPost = async (slug: string) => {
   } catch (error) {
     throw new Error(`Error loading post ${slug}: ${error}`);
   }
+}
+
+
+export const getPostSlugs = async () => {
+  const content = await readdir(POST_CONTENTS_DIR, { withFileTypes: true });
+  const slugs = content.filter((dirent) => dirent.isDirectory()).map((dirent) => dirent.name);
+  return slugs;
 }
 
 
