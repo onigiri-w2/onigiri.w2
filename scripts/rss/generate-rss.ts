@@ -1,15 +1,13 @@
 import { POSTS_PATH_FROM_ROOT, SITE_DOMAIN } from '@/const';
-import { mdxComponents } from '@/posts/components';
 import { POST_CONTENTS_DIR } from '@/posts/const';
-import { PostMetadata } from '@/posts/types';
-import { evaluate } from '@mdx-js/mdx';
 import { promises as fs } from 'fs';
 import path from 'path';
-import { Fragment } from 'react';
-import { renderToString } from 'react-dom/server';
-import { jsx, jsxs } from 'react/jsx-runtime';
 import RSS from 'rss';
+import { renderMdx2Html } from './render-mdx';
 
+
+const FEED_FILE_NAME = 'rss.xml';
+const FEED_OUTPUT_PATH = path.join(process.cwd(), 'public', FEED_FILE_NAME);
 
 // 記事情報の型定義
 interface Article {
@@ -23,18 +21,14 @@ interface Article {
 }
 
 function generateRssFeed(articles: Article[]): string {
-  // フィードのオプション設定
-  const feedOptions = {
+  const feed = new RSS({
     title: "onigiri.w2",
     description: "onigiri.w2の個人サイトです",
-    feed_url: `${SITE_DOMAIN}/rss.xml`,
+    feed_url: `${SITE_DOMAIN}/${FEED_FILE_NAME}`,
     site_url: SITE_DOMAIN,
     language: "ja",
     pubDate: new Date(),
-  };
-
-  // フィードインスタンスの作成
-  const feed = new RSS(feedOptions);
+  });
 
   // 記事の追加
   articles.forEach((article) => {
@@ -53,29 +47,6 @@ function generateRssFeed(articles: Article[]): string {
   return feed.xml({ indent: true });
 }
 
-async function renderMdx2Html(inputPath: string): Promise<{ html: string, metadata: PostMetadata }> {
-  // MDXファイルを読み込む
-  const mdxPath = path.isAbsolute(inputPath)
-    ? inputPath
-    : path.join(process.cwd(), inputPath);
-  const mdxContent = await fs.readFile(mdxPath, 'utf8');
-
-  // MDXをHTMLにレンダリング
-  const { default: MDXContent, metadata } = await evaluate(mdxContent, {
-    Fragment,
-    jsx,
-    jsxs,
-    useMDXComponents: () => mdxComponents,
-  });
-
-  // HTMLを生成
-  return {
-    html: renderToString(<MDXContent />),
-    metadata: metadata as PostMetadata,
-  }
-}
-
-
 async function main() {
   const contentsDir = POST_CONTENTS_DIR;
   const slugs = (await fs.readdir(contentsDir, { withFileTypes: true })).filter((item) => item.isDirectory());
@@ -89,8 +60,8 @@ async function main() {
   const htmlResults = await Promise.all(htmlPromises);
 
   // 各記事の情報を取得
-  // ここでは例として、最初の3件を取得
-  const articles: Article[] = htmlResults.map((result) => {
+  const LATEST_LIMIT = 10;
+  const latestArticles: Article[] = htmlResults.map((result) => {
     return {
       id: result.metadata.id,
       title: result.metadata.title,
@@ -102,13 +73,11 @@ async function main() {
     }
   }).sort((a, b) => {
     return b.date.getTime() - a.date.getTime();
-  }).slice(0, 10); // 最新の10件を取得
+  }).slice(0, LATEST_LIMIT);
 
-  const rssFeed = generateRssFeed(articles);
+  const rssFeed = generateRssFeed(latestArticles);
 
-  // RSSフィードをファイルに書き込む
-  const rssFilePath = path.join(process.cwd(), 'public', 'rss.xml');
-  await fs.writeFile(rssFilePath, rssFeed, 'utf8');
+  await fs.writeFile(FEED_OUTPUT_PATH, rssFeed, 'utf8');
 }
 
 

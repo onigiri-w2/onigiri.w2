@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "npx tsx --tsconfig tsconfig.custom.json scripts/generate-rss.tsx && next build",
+    "build": "npx tsx --tsconfig tsconfig.custom.json scripts/rss/generate-rss.ts && next build",
     "start": "next start",
     "start:ssg": "serve out",
     "lint": "next lint"
