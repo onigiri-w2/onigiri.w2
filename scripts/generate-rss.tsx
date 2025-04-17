@@ -1,5 +1,6 @@
 import { POSTS_PATH_FROM_ROOT, SITE_DOMAIN } from '@/const';
 import { mdxComponents } from '@/posts/components';
+import { POST_CONTENTS_DIR } from '@/posts/const';
 import { PostMetadata } from '@/posts/types';
 import { evaluate } from '@mdx-js/mdx';
 import { promises as fs } from 'fs';
@@ -76,7 +77,7 @@ async function renderMdx2Html(inputPath: string): Promise<{ html: string, metada
 
 
 async function main() {
-  const contentsDir = path.join(process.cwd(), 'src/posts/content');
+  const contentsDir = POST_CONTENTS_DIR;
   const slugs = (await fs.readdir(contentsDir, { withFileTypes: true })).filter((item) => item.isDirectory());
 
   // MDXファイルをHTMLに変換
