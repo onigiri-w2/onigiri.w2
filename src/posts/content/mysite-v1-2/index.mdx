@@ -1,0 +1,71 @@
+export const metadata = {
+  id: "mysite-v1-2",
+  title: "rssを追加 & ダークモード追加（onigiri.w2 v1.2）",
+  description: "個人サイトにダークモードを追加し、rss対応も行いました。",
+  date: "2025-04-18T12:00:00+09:00",
+  tags: ["onigiri.w2"],
+  author: "onigiri.w2"
+};
+
+個人サイトにいくつかアップデートを加えました。主に以下の3点です：
+
+1. ダークモードの追加  
+2. RSS対応  
+3. コードブロックのスタイル調整（Markdown）
+
+### 1. ダークモードの追加
+
+今回はCSSの標準機能である `color-scheme` と `light-dark()` を使って、ダークモードを実装しました。最近のブラウザならほとんど対応しています。
+
+Tailwind CSSと組み合わせるときに便利なのが [`next-themes`](https://github.com/pacocoursey/next-themes)。これで `color-scheme` の制御を任せられるので、簡単にテーマの切り替えができます。
+
+```css
+@import "tailwindcss";
+
+@theme {
+  --color-bg: light-dark(#fff, #000);
+}
+
+:root {
+  color-scheme: light dark;
+}
+```
+
+この `light-dark()` を使うことで、Tailwindの `dark:` プレフィックスをあまり使わなくて済むのが嬉しいところ。
+
+参考リンク：
+
+- [color-scheme (MDN)](https://developer.mozilla.org/ja/docs/Web/CSS/color-scheme)
+- [light-dark() (MDN)](https://developer.mozilla.org/ja/docs/Web/CSS/color_value/light-dark)
+- [next-themes GitHub](https://github.com/pacocoursey/next-themes)
+
+
+### 2. RSS対応
+
+意外と苦戦しました。
+
+フィードそのものはライブラリで生成できるのですが、問題は `description` の扱いです。  
+ここには HTML を文字列として入れられるのですが、記事は MDX 形式なので一筋縄ではいきません。
+
+最初は `rehype` で HTML に変換しようとしましたが、MDXに含まれる JSX 部分がうまく処理できず...。
+
+最終的には、
+
+- MDX → React コンポーネントに変換  
+- それを `renderToString()` で HTML に変換  
+
+という流れにしました。ひとまずこれで動いています。  
+詳しいコードは GitHub を見てください（スクリプト一発でやってます）。
+
+
+### 3. コードブロックのスタイル調整
+
+Markdownのコードブロックには、[rehype-pretty-code](https://rehype-pretty.pages.dev/) を使いました。
+
+導入は簡単。ドキュメントを10分も読めば使えるようになります。
+
+ただし、light/dark モードごとのスタイル切り替えには少し工夫が必要です。  
+`theme` オプションでスキーマを分けるだけでなく、CSS側でもちゃんと対応してあげましょう。
+
+こちらも、具体的な実装は GitHub をどうぞ。
+
