@@ -27,7 +27,8 @@ const nextConfig: NextConfig = {
   output: "export",
   images: {
     unoptimized: true
-  }
+  },
+  transpilePackages: ["shiki"],
 };
 
 export default withMDX(nextConfig);
